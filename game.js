@@ -279,6 +279,22 @@ circle.addEventListener('mouseout', () => {
     circle.style.backgroundColor = '';
 });
 
+window.addEventListener('resize', () => {
+    // ゲーム中以外は無視
+    if (!gameActive) return;
+
+    const maxLeft = gameArea.offsetWidth - circle.offsetWidth;
+    const maxTop = gameArea.offsetHeight - circle.offsetHeight;
+
+    let left = parseFloat(circle.style.left);
+    let top = parseFloat(circle.style.top);
+
+    // はみ出そうなら調整
+    if (left > maxLeft) circle.style.left = `${maxLeft}px`;
+    if (top > maxTop) circle.style.top = `${maxTop}px`;
+});
+
+
 
 // ゲームスタート・再挑戦ボタンのイベントリスナー
 gameButton.addEventListener('click', startGame);
