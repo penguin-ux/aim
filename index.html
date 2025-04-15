@@ -119,6 +119,17 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
+        .countdown {
+            font-size: 48px;
+            text-align: center;
+            display: none;
+            margin: 50px auto 0px;
+            /*transform: translate(-50%, -50%);*/
+            color: black;
+            /*z-index: 10;*/
+            user-select: none;
+        }
+
     </style>
 </head>
 <body>
@@ -130,6 +141,7 @@
     <button id="gameButton">ゲーム開始</button>
     <button id="retryButton" style="display:none;">再挑戦</button>
     <div id="score">得点: 0</div>
+    <div id="countdown" class="countdown"></div>
     <div id="circle"></div>
 </div>
 

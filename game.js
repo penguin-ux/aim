@@ -21,18 +21,47 @@ let gameActive = false; // ゲーム中のみ true にする
 let scoreInterval; // 得点加算用のインターバル変数（明確に分ける）
 
 function startGame() {
+    // スコアリセット
     score = 0;
     scoreDisplay.textContent = `得点: ${score}`;
+    gameActive = false;
 
-    gameActive = true;
-
+    // ボタンや設定を非表示
     gameButton.style.display = 'none';
     retryButton.style.display = 'none';
     randomModeButton.style.visibility = 'hidden';
     slideModeButton.style.visibility = 'hidden';
     sliderContainer.style.visibility = 'hidden';
     settingsButton.style.visibility = 'hidden';
+
+    // 円を中央に表示
+    const centerX = (gameArea.offsetWidth - circle.offsetWidth) / 2;
+    const centerY = (gameArea.offsetHeight - circle.offsetHeight) / 2;
+    circle.style.left = `${centerX}px`;
+    circle.style.top = `${centerY}px`;
     circle.style.display = 'block';
+
+    // カウントダウンを表示
+    const countdownDisplay = document.getElementById('countdown');
+    countdownDisplay.style.display = 'block';
+    let count = 3;
+    countdownDisplay.textContent = count;
+
+    const countdownInterval = setInterval(() => {
+        count--;
+        if (count > 0) {
+            countdownDisplay.textContent = count;
+        } else {
+            clearInterval(countdownInterval);
+            countdownDisplay.style.display = 'none';
+            beginGame(); // 本当のスタート処理をここで呼ぶ
+        }
+    }, 1000);
+}
+
+// 実際のゲーム開始処理を分離
+function beginGame() {
+    gameActive = true;
     gameStartTime = Date.now();
 
     setTimeout(endGame, gameTime);
@@ -43,8 +72,9 @@ function startGame() {
         circleMoveInterval = setInterval(moveCircleSlide, 20);
     }
 
-    updateScoreInterval(); // ここで得点加算インターバルをスタート
+    updateScoreInterval();
 }
+
 
 
 // ゲーム終了の処理
