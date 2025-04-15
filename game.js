@@ -94,7 +94,16 @@ function endGame() {
 
     // 評価ランクを決定
     let rank;
-    if (score >= 350) {
+    if (score >= 450) {
+        tier = 'Out of this World';
+        rank = 'おめでとうございます\n全てを超越した別次元のエイム力です';
+    } else if (score >= 400) {
+        tier = 'God Zeus';
+        rank = '神のようなエイム力です\nあなた以上のエイム力の持ち主はこの世に存在しません';
+    } else if (score >= 375) {
+        tier = 'Demon';
+        rank = 'あなたのエイム力は人間の限界を超えています\n対人ゲームは退屈で仕方ないことでしょう';
+    } else if (score >= 350) {
         tier = 'Cheater';
         rank = 'あなたはチーターです\nチートは制作会社の努力を踏みにじる行為なので即刻やめてください';
     } else if (score >= 300) {
@@ -102,19 +111,19 @@ function endGame() {
         rank = 'プロゲーマーとして輝かしい成績を残し、\n数々のタイトルの歴史に名を刻むでしょう';
     } else if (score >= 280) {
         tier = 'Shooting Master';
-        rank = '最強すぎて眩しい\nエイム神の名を授けましょう';
+        rank = '最強すぎて眩しい\n大半のゲームはエイムのみで解決できるでしょう';
     } else if (score >= 260) {
         tier = 'Veteran Soldier';
         rank = '10年に一人の逸材\n伝説の兵士として語り継がれるでしょう';
     } else if (score >= 240) {
         tier = 'Sniper';
-        rank = '誰もが憧れるエイムの持ち主\nMr.Sniperっていうあだ名つけられてもおかしくない';
+        rank = '誰もが憧れるエイムの持ち主\nMr.Sniperっていうあだ名つけられてもおかしくないでしょう';
     } else if (score >= 220) {
         tier = 'S+';
         rank = 'どのゲームでも常にキャリーできる\n攻めマーシャルでエース取れるレベル\nエコラウンドで味方に買ってもらおう';
     } else if (score >= 200) {
         tier = 'S';
-        rank = 'かなりのエイム強者\nウィドウメイカーをピックしても光のOWが保てるでしょう';
+        rank = 'かなりのエイム強者\nウィドウメイカーをピックしても光のOWが保てるはず';
     } else if (score >= 180) {
         tier = 'A+';
         rank = 'シューティングの素質アリ\nパーティを組めばヒーロー間違いなし';
